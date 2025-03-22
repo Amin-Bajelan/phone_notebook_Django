@@ -1,0 +1,25 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: cornflowerblue;
+}
+.btn_1 , .btn_2{
+    height: 70px;
+    width: 100px;
+    font-size: large;
+    margin-left: 450px;
+    margin-top: 150px;
+}
+button{
+    height: 70px;
+    width: 100px;
+    font-size: large;
+    margin-left: 450px;
+    margin-top: 150px;
+}
+h2 {
+    margin: 39px;
+}

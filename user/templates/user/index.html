@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Selct</title>
+    <link rel="stylesheet" href="{% static "user/style.css" %}">
+</head>
+<style>
+    h2{
+        color: #efefef;
+        margin: 70px;
+    }
+</style>
+<body>
+<h2>Please Select your action:</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <button class="btn_1" name="btn" value="login">Login</button>
+    <button class="btn_2" name="btn" value="sing_on">sing on</button>
+    </form>
+</body>
+</html>

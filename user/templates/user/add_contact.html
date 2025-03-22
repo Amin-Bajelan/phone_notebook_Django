@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD Contact</title>
+    <link rel="stylesheet" href="{% static "user/style.css" %}">
+</head>
+
+<style>
+    body{
+        background-color: cornflowerblue;
+        font-family: Arial;
+        font-size: 17px;
+    }
+
+    button {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+</style>
+<body>
+    <form method="post">
+        {% csrf_token %}
+        {{form}}
+    </form>
+        <button type="submit" name="btn" value="submit">Submit</button>
+        <button type="submit" name="btn" value="show_contact">Show List</button>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SHOW CONTACT</title>
+</head>
+<style>
+  body{
+    background-color: cornflowerblue;
+  }
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: Arial,sans-serif;
+  }
+  th,td{
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+    font-size: 18px;
+  }
+  th{
+    background-color: darkslateblue;
+    color: white;
+  }
+  tr:nth-child(even){
+    background-color: #f2f2f2;
+  }
+  tr:hover{
+    background-color: #ddd;
+  }
+</style>
+<body>
+
+  <table>
+    <tr>
+      <th>name</th>
+      <th>email</th>
+    </tr>
+
+  {% for i in form %}
+    <tr>
+      <td>{{i.contact}}</td>
+      <td>{{i.phone_number}}</td>
+      </tr>
+
+  {% endfor %}
+
+
+  </table>
+
+</body>
+</html>
