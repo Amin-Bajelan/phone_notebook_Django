@@ -1,15 +1,39 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Sing On</title>
+    <link rel="stylesheet" href="{% static "user/style.css" %}">
 </head>
+<style>
+
+     button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+         a{
+        text-decoration: none;
+        color: white;
+    }
+</style>
 <body>
+    {% if message %}
+        {{message}}
+    <hr>
+    {% endif %}
     <form method="post">
         {% csrf_token %}
         {{ form }}
         <button name="btn">Submit</button>
     </form>
+    <button type="button"><a href="{% url "index" %}">Go Back</a></button>
 
 </body>
 </html>

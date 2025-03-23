@@ -1,35 +1,14 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>SHOW CONTACT</title>
+    <link rel="stylesheet" href="{% static "user/style.css" %}">
 </head>
 <style>
-  body{
-    background-color: cornflowerblue;
-  }
-  table{
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    font-family: Arial,sans-serif;
-  }
-  th,td{
-    padding: 15px;
-    text-align: left;
-    border: 1px solid #ddd;
-    font-size: 18px;
-  }
-  th{
-    background-color: darkslateblue;
-    color: white;
-  }
-  tr:nth-child(even){
-    background-color: #f2f2f2;
-  }
-  tr:hover{
-    background-color: #ddd;
-  }
+
+
 </style>
 <body>
 
@@ -46,9 +25,9 @@
       </tr>
 
   {% endfor %}
-
-
   </table>
+  <br>
+    <button type="button"><a href="{% url "index" %}">Logout</a></button>
 
 </body>
 </html>

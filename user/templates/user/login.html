@@ -1,28 +1,19 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Log In</title>
+    <link rel="stylesheet" href="{% static "user/style.css" %}">
 </head>
-<style>
-    body{
-        background-color: cornflowerblue;
-        font-family: Arial;
-        font-size: 17px;
-    }
 
-    button {
-  background-color: #04AA6D; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-}
-</style>
 <body>
+
+        {% if message %}
+        {{message}}
+        <hr>
+        {% endif %}
+
 <form method="post">
     {% csrf_token %}
         <label for="username">Please enter your username or email:</label>
@@ -33,6 +24,6 @@
     <br>
         <button type="submit">Submit</button>
 </form>
-
+    <button type="button"><a href="{% url "index" %}">Logout</a></button>
 </body>
 </html>
