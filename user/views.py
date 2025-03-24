@@ -26,6 +26,7 @@ def sing_on(request):
             form_user = UserForm(request.POST)
             if form_user.is_valid():
                 owner_name = request.POST.get("username")
+                print(owner_name)
                 form_user.save()
                 return redirect('add_contact')
         except:
@@ -38,16 +39,25 @@ def sing_on(request):
 
 
 def log_in(request):
+    global owner_name
+    flag = int(1)
     if request.method == 'POST':
         try:
             username_or_email = request.POST.get('username')
             password = request.POST.get('password')
             if '@' in username_or_email:
                 form = User.objects.get(email=username_or_email)
+                flag = 1
             else:
                 form = User.objects.get(username=username_or_email)
+                flag = 0
             if form.password == password:
                 form = Contact.objects.filter(owner=form.id)
+                if flag == 1:
+                    owner_name = User.objects.get(email=username_or_email)
+                else:
+                    owner_name = User.objects.get(username=username_or_email)
+
                 return render(request, 'user/show_contact.html', {'form': form})
         except:
             message = f"Something went wrong your username or password is incorrect."
@@ -58,6 +68,7 @@ def log_in(request):
 
 def add_contact(request):
     global owner_name
+    form = ContactForm()
     if request.method == 'POST':
         try:
             if request.POST.get('btn') == 'submit_contact':
@@ -81,5 +92,3 @@ def show_contact(request):
     except:
         message = "Something went wrong maby you didnt add contact"
         return redirect('add_contact', {'message': message})
-
-

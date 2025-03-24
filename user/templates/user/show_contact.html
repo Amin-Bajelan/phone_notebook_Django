@@ -6,10 +6,6 @@
     <title>SHOW CONTACT</title>
     <link rel="stylesheet" href="{% static "user/style.css" %}">
 </head>
-<style>
-
-
-</style>
 <body>
 
   <table>
@@ -27,7 +23,9 @@
   {% endfor %}
   </table>
   <br>
+    <button type="button"><a href="{% url "add_contact" %}">Add contact</a></button>
     <button type="button"><a href="{% url "index" %}">Logout</a></button>
+
 
 </body>
 </html>
