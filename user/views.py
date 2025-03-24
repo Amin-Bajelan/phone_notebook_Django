@@ -78,7 +78,7 @@ def add_contact(request):
                 Contact.objects.create(owner=owner_name, contact=contact, phone_number=phone_number)
         except:
             message = f"Something went wrong choose another name."
-            return render(request, 'user/add_contact.html', {'message': message})
+            return render(request, 'user/add_contact.html', {'form':form ,'message': message})
 
     form = ContactForm()
     return render(request, 'user/add_contact.html', {'form': form})
